@@ -7,6 +7,8 @@
         Start typing, or drop a file into the text area to get started.
       </span>
     </div>
+    <div class="index-editor">
+    </div>
   </div>
 </template>
 
@@ -18,7 +20,7 @@ export default {
   },
   head () {
     return {
-      title: 'Users'
+      title: 'VueCarbon'
     }
   }
 }
@@ -31,6 +33,7 @@ export default {
   padding-top: 5%;
   padding-left: 20%;
   padding-right: 20%;
+  padding-bottom: 5%;
 }
 .index-title-text {
   font-size: 50px;
@@ -38,5 +41,14 @@ export default {
 .index-subtitle-text {
   color: #fff;
   font-size: 25px;
+}
+.index-editor {
+  background: #121212;
+  border: 3px solid #fff;
+  border-radius: 8px;
+  padding-top: 5%;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-bottom: 5%;
 }
 </style>
