@@ -35,5 +35,8 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  plugins: [
+    { src: '~plugins/vue-codemirror', ssr: false }
+  ]
 }

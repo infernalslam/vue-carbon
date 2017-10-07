@@ -8,3 +8,11 @@ html, body
   height: 100vh;
   margin: 0;
 }
+
+.CodeMirror {
+  font-size: 20px !important;
+  position: relative;
+  background: rgb(255, 255, 255);
+  min-width: 90px;
+  padding: 48px 32px;
+}

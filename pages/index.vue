@@ -7,13 +7,29 @@
         Start typing, or drop a file into the text area to get started.
       </span>
     </div>
+
+
     <div class="index-editor">
+      <div class="index-options">
+        <span style="color: #fff;"> Options </span>
+        <select v-model="form.editorOptions.mode">
+          <option v-for="(item, index) in theme"> {{ item.name }} </option>
+        </select>
+        <select v-model="form.editorOptions.code">
+          <option v-for="(item, index) in code"> {{ item.name }} </option>
+        </select>
+      </div>
+      <div class="index-container">
+        <codemirror v-model="form.code" :options="form.editorOptions"></codemirror>
+      </div>
     </div>
+
   </div>
 </template>
 
 <script>
 // import axios from '~/plugins/axios'
+import { theme, code, simpleCode } from '../data/global'
 
 export default {
   async asyncData () {
@@ -21,6 +37,28 @@ export default {
   head () {
     return {
       title: 'VueCarbon'
+    }
+  },
+  data () {
+    return {
+      theme: theme,
+      code: code,
+      form: {
+        code: simpleCode,
+        editorOptions: {
+          tabSize: 2,
+          mode: code[0].name,
+          theme: 'monokai',
+          lineNumbers: false,
+          line: false,
+          keyMap: 'default',
+          extraKeys: { 'Ctrl': 'autocomplete' },
+          foldGutter: false,
+          gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
+          styleSelectedText: false,
+          highlightSelectionMatches: { showToken: /\w/, annotateScrollbar: true }
+        }
+      }
     }
   }
 }
@@ -50,5 +88,42 @@ export default {
   padding-left: 20%;
   padding-right: 20%;
   padding-bottom: 5%;
+}
+.index-container {
+  background: rgb(255, 255, 255);
+  padding: 48px 32px;
+  /*position: relative;*/
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  vertical-align: baseline;
+}
+.index-options {
+  height: 100%;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 8px 16px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
 }
 </style>
