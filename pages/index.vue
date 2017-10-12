@@ -8,16 +8,16 @@
       </span>
     </div>
 
-
     <div class="index-editor">
       <div class="index-options">
         <span style="color: #fff;"> Options </span>
         <select v-model="form.editorOptions.mode">
-          <option v-for="(item, index) in theme"> {{ item.name }} </option>
+          <option v-for="(item, index) in theme" :key="index"> {{ item.name }} </option>
         </select>
         <select v-model="form.editorOptions.code">
-          <option v-for="(item, index) in code"> {{ item.name }} </option>
+          <option v-for="(item, index) in code" :key="index"> {{ item.name }} </option>
         </select>
+        <span style="color: #fff; cursor: pointer;"> Download </span>
       </div>
       <div class="index-container">
         <codemirror v-model="form.code" :options="form.editorOptions"></codemirror>
