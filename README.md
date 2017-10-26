@@ -1,4 +1,4 @@
-# vue-carbon
+# vue-carbon with express.js
 
 > Nuxt.js project
 
